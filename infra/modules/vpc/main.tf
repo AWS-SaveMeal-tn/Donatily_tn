@@ -85,7 +85,7 @@ resource "aws_subnet" "db" {
 }
 
 ############################
-# NAT : régional (défaut) ou zonal
+# NAT Gateway classique (1 EIP + 1 GW dans AZ-a, partagée par les instances backend)
 ############################
 
 resource "aws_eip" "nat_regional" {
@@ -164,7 +164,7 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
-# Frontend + backend : sortie Internet via NAT. Une seule RT en mode régional.
+# Backend : sortie Internet via la NAT Gateway classique (AZ-a). Une seule RT en mode régional.
 resource "aws_route_table" "app_regional" {
   count = var.nat_mode == "regional" ? 1 : 0
 

@@ -10,7 +10,7 @@ variable "aws_region" {
 variable "project_name" {
   description = "Préfixe utilisé pour nommer toutes les ressources"
   type        = string
-  default     = "smartfood"
+  default     = "donatily"
 }
 
 variable "environment" {
@@ -64,13 +64,13 @@ variable "db_subnet_cidrs" {
 }
 
 variable "nat_mode" {
-  description = "regional (1 NAT multi-AZ) ou zonal (1 NAT + EIP par AZ)"
+  description = "Mode NAT : seul 'regional' est supporté (1 NAT Gateway classique dans AZ-a, partagée par les instances backend)"
   type        = string
   default     = "regional"
 
   validation {
-    condition     = contains(["regional", "zonal"], var.nat_mode)
-    error_message = "nat_mode doit valoir \"regional\" ou \"zonal\"."
+    condition     = var.nat_mode == "regional"
+    error_message = "nat_mode doit valoir \"regional\" (NAT Gateway classique unique)."
   }
 }
 
