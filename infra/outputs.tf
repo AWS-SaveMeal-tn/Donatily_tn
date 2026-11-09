@@ -18,8 +18,9 @@ output "db_subnet_ids" {
   value = module.vpc.db_subnet_ids
 }
 
-output "nat_gateway_ids" {
-  value = module.vpc.nat_gateway_ids
+output "nat_gateway_id" {
+  description = "ID de la NAT Gateway classique"
+  value       = module.vpc.nat_gateway_id
 }
 
 output "security_group_ids" {

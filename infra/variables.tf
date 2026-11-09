@@ -63,16 +63,6 @@ variable "db_subnet_cidrs" {
   default     = ["10.0.31.0/24", "10.0.32.0/24"]
 }
 
-variable "nat_mode" {
-  description = "Mode NAT : seul 'regional' est supporté (1 NAT Gateway classique dans AZ-a, partagée par les instances backend)"
-  type        = string
-  default     = "regional"
-
-  validation {
-    condition     = var.nat_mode == "regional"
-    error_message = "nat_mode doit valoir \"regional\" (NAT Gateway classique unique)."
-  }
-}
 
 ############################
 # IAM (Learner Lab : rôles préexistants uniquement)
