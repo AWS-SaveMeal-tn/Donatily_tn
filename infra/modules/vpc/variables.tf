@@ -26,7 +26,3 @@ variable "backend_subnet_cidrs" {
 variable "db_subnet_cidrs" {
   type = list(string)
 }
-
-variable "nat_mode" {
-  type = string
-}

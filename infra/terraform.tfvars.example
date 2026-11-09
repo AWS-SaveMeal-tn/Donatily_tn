@@ -1,6 +1,5 @@
 # cp terraform.tfvars.example terraform.tfvars   (terraform.tfvars est ignoré par Git)
 environment  = "dev"
-nat_mode     = "regional"
 app_repo_url = ""
 
 # Optionnel : key pair du Learner Lab (sinon SSM)

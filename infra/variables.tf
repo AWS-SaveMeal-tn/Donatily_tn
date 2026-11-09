@@ -10,7 +10,7 @@ variable "aws_region" {
 variable "project_name" {
   description = "Préfixe utilisé pour nommer toutes les ressources"
   type        = string
-  default     = "smartfood"
+  default     = "donatily"
 }
 
 variable "environment" {
@@ -63,16 +63,6 @@ variable "db_subnet_cidrs" {
   default     = ["10.0.31.0/24", "10.0.32.0/24"]
 }
 
-variable "nat_mode" {
-  description = "regional (1 NAT multi-AZ) ou zonal (1 NAT + EIP par AZ)"
-  type        = string
-  default     = "regional"
-
-  validation {
-    condition     = contains(["regional", "zonal"], var.nat_mode)
-    error_message = "nat_mode doit valoir \"regional\" ou \"zonal\"."
-  }
-}
 
 ############################
 # IAM (Learner Lab : rôles préexistants uniquement)

@@ -49,5 +49,6 @@ resource "aws_instance" "frontend" {
   tags = {
     Name = "${var.name_prefix}-frontend-l3"
     Role = "frontend"
+    App  = "donatily"
   }
 }

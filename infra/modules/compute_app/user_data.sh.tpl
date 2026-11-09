@@ -8,8 +8,8 @@ cat >/usr/share/nginx/html/index.html <<'HTML'
 <!doctype html>
 <html lang="fr">
 <body>
-  <h1>SmartFood Rescue — L3</h1>
-  <p>Instance applicative privée (frontend). Sortie Internet via NAT.</p>
+  <h1>Donatily — L3</h1>
+  <p>Instance applicative privée (frontend). Sortie Internet via NAT Gateway classique.</p>
 </body>
 </html>
 HTML
@@ -23,5 +23,5 @@ fi
 REPO="${app_repo_url}"
 if [ -n "$REPO" ]; then
   dnf -y install git || true
-  git clone "$REPO" /opt/smartfood || true
+  git clone "$REPO" /opt/donatily || true
 fi

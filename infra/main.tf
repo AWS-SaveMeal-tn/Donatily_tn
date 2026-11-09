@@ -8,7 +8,6 @@ module "vpc" {
   frontend_subnet_cidrs = var.frontend_subnet_cidrs
   backend_subnet_cidrs  = var.backend_subnet_cidrs
   db_subnet_cidrs       = var.db_subnet_cidrs
-  nat_mode              = var.nat_mode
 }
 
 module "security_groups" {

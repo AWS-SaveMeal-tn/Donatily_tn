@@ -22,8 +22,9 @@ output "db_subnet_ids" {
   value = aws_subnet.db[*].id
 }
 
-output "nat_gateway_ids" {
-  value = var.nat_mode == "regional" ? aws_nat_gateway.regional[*].id : aws_nat_gateway.zonal[*].id
+output "nat_gateway_id" {
+  description = "ID de la NAT Gateway classique (AZ-a)"
+  value       = aws_nat_gateway.this.id
 }
 
 output "internet_gateway_id" {
