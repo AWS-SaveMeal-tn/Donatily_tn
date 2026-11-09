@@ -4,29 +4,7 @@
 
 ## Architecture déployée
 
-```
-                        Users
-                          │
-                    Cognito / WAF
-                          │
-                   Internet Gateway
-                          │
-                   ALB (subnets publics, 2 AZ)
-                    ┌─────┴─────┐
-           ASG Frontend       ASG Frontend
-          (public, AZ-a)     (public, AZ-b)
-                    └─────┬─────┘
-           ASG Backend    │    ASG Backend
-          (privé, AZ-a)   │   (privé, AZ-b)
-                NAT GW ◄──┘             │
-              (AZ-a, lié aux            │
-             instances backend)         │
-                          └─────────────┤
-                               S3 Gateway Endpoint ──→ S3
-                          │
-              RDS + Sauvegarde Automatique
-                (subnet privé DB, AZ-c) ──→ S3 (Backup)
-```
+![Architecture déployée](ArchProjet.png)
 
 > **NAT Gateway** : une seule NAT Gateway classique déployée dans le subnet public d'AZ-a, partagée par les instances backend des deux AZ.
 
